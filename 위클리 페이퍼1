@@ -1,0 +1,88 @@
+
+Q1. 
+● URL이란
+- 네트워크로 연결되어있는 컴퓨터 간의 자원(데이터 등)을 찾아내어 사용자가 원하는 결과(데이터 처리 등)를 수행하기 위해 중간에 자원의 위치를 알려주는 규약
+- 예시: https://www.youtube.com/watch?v=5Jr-_Za5yQM 
+
+
+● URL의 구성 요소(그 중 쿼리 위주로)
+- https://www.youtube.com/results?search_query=what+is+uniform+resource+locator
+
+● https:// : Scheme
+● Scheme은 위의 URL 링크에서 :// 이전에 입력되는 첫 번째 부분으로 컴퓨터 간의 자원(데이터 등)에 접근할 때 사용하는 통신 규약(다른 말로 프로토콜)을 지칭한다. 
+● 예시 : http, https, ftp, mailto 
+● 자료 출처 : 
+● https://developer.mozilla.org/en-US/docs/Web/URI/Reference/Schemes
+
+● www.youtube.com : Host
+● Host는 위의 URL 링크에서 :// 다음의 www.youtube.com에 해당하며 컴퓨터 간의 자원(데이터 등)에 접근하려는 서버의 주소를 지칭한다. 주로 접근하려는 서버의 도메인 이름인 www.youtube.com이나 142.250.190.206 형식의 IP 주소가 입력된다.
+● 자료 출처 :
+● https://developer.mozilla.org/en-US/docs/Web/API/URL/host
+
+● /results : Path
+● Path는 위의 링크에서 www.youtube.com 다음에 오는 results에 해당하며 사용자가 접속한 서버에서의 특정 리소스(파일, 페이지 등)의 위치나 경로에 해당한다.
+● 자료 출처 :
+● https://developer.mozilla.org/en-US/docs/Web/API/URL/pathname
+
+● ?search_query=what+is+uniform+resource+locator : Query
+● Query는 위의 링크에서 results 다음에 오는 ?search_query에 해당하며 사용자가 요청하는 특정 리소스(파일, 페이지 등)에 대해 추가적인 정보를 전달할 때 사용된다. 유튜브의 경우 검색하고자 하는 영상의 이름이, 네이버 블로그의 경우 블로그 글의 ID나 페이지 번호 등이 Query에 포함된다. Query는 여러 개의 파라미터로 구성될 수 있으며 각각의 파리미터는 &으로 구분한다.
+● 자료 출처 :
+● https://developer.mozilla.org/en-US/docs/Web/API/URL/pathname
+
+
+
+● 웹 서비스에서의 쿼리의 사용 용도
+● 쿼리는 웹 서비스에서 서버의 데이터에 접근하여 사용자가 원하는 결과를 얻기 위한 과정에서 세부적인 요청 정보를 전달하기 위해 사용된다. 
+● 예를 들면
+● https://www.youtube.com/results?search_query=what+is+uniform+resource+locator
+● 위의 URL의 경우 
+● https:// 라는 방식으로 서버와 통신하여 
+● www.youtube.com 라는 서버에 들어가서 
+● /results 라는 곳에서 리소스를 요청하고 
+● ?search_query=what+is+uniform+resource+locator라는 쿼리 파리미터를 통해 what is uniform resource locator라는 검색어를 전달한다.
+
+
+
+
+
+
+
+Q2. 
+● HTTP로 서버에 데이터를 보내는 방식
+
+● GET 방식
+● URL에 데이터를 붙여 서버로 전송하는 방식
+
+● ex) www.example.com?id=mommoo&pass=1234
+● 출처: https://mommoo.tistory.com/60 [개발자로 홀로 서기:티스토리]
+
+● 위의 URL에서 id=mommoo&pass=1234 라고 작성하여 id와 password를 데이터로 보내는 방식이 GET 방식이다.
+
+
+● POST 방식
+
+● URL이 아닌 HTTP 요청 본문의 BODY에다가 데이터를 붙여 서버로 전송하는 방식
+
+● ex) 
+● application/x-www-form-urlencoded – BODY에 key와 value를 쌍으로 넣는 방식
+● text/plain – BODY에 text 입력 방식
+● multipart/form-data – 파일 전송시 사용하는 방식으로 BODY에 넣음
+● 출처: https://mommoo.tistory.com/60 [개발자로 홀로 서기:티스토리]
+
+● 위의 내용을 BODY에 넣어 데이터를 보내는 방식이 POST 방식이다.
+
+
+● 리퀘스트(request)와 리스폰스(response)
+● request(요청)
+● 클라이언트가 서버로 전달하는 메시지로 서버 측에서 액션을 요구한다.
+https://private-user-images.githubusercontent.com/211906454/449766073-859d3b7c-f53d-4977-8f16-089127f4f91c.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NDg3ODMwMDQsIm5iZiI6MTc0ODc4MjcwNCwicGF0aCI6Ii8yMTE5MDY0NTQvNDQ5NzY2MDczLTg1OWQzYjdjLWY1M2QtNDk3Ny04ZjE2LTA4OTEyN2Y0ZjkxYy5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjUwNjAxJTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI1MDYwMVQxMjU4MjRaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT0xZjE4OGRjMzc4ZjRiMDUwNzNjYmEzNGIxZTlhNDYxZGI4ZDI0NjJkZWQxZWRjNjQxZDU5NjNlMDcwM2E3OTQ5JlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.3IMJiMAUN9ZqOod6pQQkSBhyPlNuQuq5GTTjODxSyI0
+● 예시로 위의 크롬의 개발자 도구에서 Network -> Name 열의 요청 -> Headers에 들어가면 request 하였을 때 들어간 정보를 확인 가능하다.
+
+
+
+● response(응답)
+● 클라이언트가 서버로 보낸 메시지에 대한 서버가 클라이언트에 보내는 답변이다.
+https://private-user-images.githubusercontent.com/211906454/449766083-c551a1fb-b706-40f0-8612-95831891971c.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NDg3ODMwMDQsIm5iZiI6MTc0ODc4MjcwNCwicGF0aCI6Ii8yMTE5MDY0NTQvNDQ5NzY2MDgzLWM1NTFhMWZiLWI3MDYtNDBmMC04NjEyLTk1ODMxODkxOTcxYy5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjUwNjAxJTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI1MDYwMVQxMjU4MjRaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT0wMzFmYTY0OTkzOTQ0Yzc5MTg3NjhiNzBlNGQ2MTc5NDcwYTJmOGM0OTE1ZGQ3ZTI4OTE4ZjJlZTQ1ZGQ3MjZiJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.3GIK90g89RjlJyhobunx0oJ5llyfGKc4kbi1ocgYSyk
+https://private-user-images.githubusercontent.com/211906454/449766094-80899198-84c0-4310-8040-99bd0f2e451a.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NDg3ODMwMDQsIm5iZiI6MTc0ODc4MjcwNCwicGF0aCI6Ii8yMTE5MDY0NTQvNDQ5NzY2MDk0LTgwODk5MTk4LTg0YzAtNDMxMC04MDQwLTk5YmQwZjJlNDUxYS5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjUwNjAxJTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI1MDYwMVQxMjU4MjRaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT1hYmJjYjI5MTA4NWNmZTkxYWVmYjkwNTIxMGQ5MzdkZjBmNTNmMjJiZDAyOTVkMzgwMTM0Mzc3OTkzM2VhMTQyJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.qM49vyNOqy7hoaPDqEbkWnMYA1oUa_aQofMv8ykvfTo
+
+● 예시로 위의 크롬의 개발자 도구에서 Network -> Name 열의 요청 -> Response에 들어가면 response 하였을 때 서버가 반환한 실제 데이터를 볼 수 있고 Preview에서는 응답 값을 시각적 혹은 일부분을 볼 수 있다.
